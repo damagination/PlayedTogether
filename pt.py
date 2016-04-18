@@ -3,6 +3,7 @@ import lxml
 from lxml import html
 import time
 from datetime import date, datetime
+from builtins import input
 
 # Gets the page for a player given the player's full name
 def getPage(playerName):
@@ -69,17 +70,17 @@ def overlap(player1, player2):
     return teams
 
 # Get args from the command line
-print 'Enter name of the first player: '
-p1 = raw_input()
-print 'Enter name of the second player: '
-p2 = raw_input()
+print('Enter name of the first player: ')
+p1 = input()
+print('Enter name of the second player: ')
+p2 = input()
 page1 = getPage(p1)
 page2 = getPage(p2)
 Defoe,Bassong = buildDictionaries(page1, page2)
 ans = overlap(Defoe, Bassong)
 if ans:
-    print p1 + ' and ' + p2 + ' were teammates at: '
+    print(p1 + ' and ' + p2 + ' were teammates at: ')
     for key in ans:
-        print '* ' + key + ' from ' + ans[key][0] + ' to ' + ans[key][1]
+        print('* ' + key + ' from ' + ans[key][0] + ' to ' + ans[key][1])
 else:
-    print p1 + ' and ' + p2 + ' have never been teammates'
+    print(p1 + ' and ' + p2 + ' have never been teammates')
