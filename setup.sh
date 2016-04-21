@@ -3,9 +3,7 @@ echo "=== Incase of permission errors, add sudo before all install commands ====
 echo "=== Tested on OS X only ==="
 
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
-	pip install requests
-	pip install lxml
-	pip install future
+	pip install -r requirements.txt
 elif [[ "$OSTYPE" == "darwin"* ]]; then
 	xcode-select --install
 	which -s brew
@@ -15,9 +13,7 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
 		brew update
 		brew install python
 	fi
-	pip install requests
-	pip install lxml
-	pip install future
+	pip install -r requirements.txt
 else
 	echo "Unknown Environment, setup will quit"
 	exit -1
